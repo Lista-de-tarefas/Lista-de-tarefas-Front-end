@@ -1,0 +1,35 @@
+.main{
+    width: 100%;
+    display: flex;
+}
+
+.div_date_name{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+}
+
+.ttl_name{
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+.div_profile{
+    width: 10%;
+}
+
+.profile{
+    width: 100%;
+    height: 45px;
+    border-radius: 50%;
+    background-color: black;
+}
