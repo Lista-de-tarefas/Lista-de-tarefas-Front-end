@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import { ErrorContextProvider } from "../context/error";
 
 import { App } from "../App";
 import { Home } from "../pages/Home";
@@ -10,7 +11,11 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />
+                element: (
+                    <ErrorContextProvider>
+                        <Home />
+                    </ErrorContextProvider>
+                )
             }
         ]
     }

@@ -1,8 +1,14 @@
 import style from './index.module.css';
+import { useState } from 'react';
 import { AlignLeft, Trash } from 'lucide-react';
 import { Button } from './_components/Button';
 
 export function Task() {
+    const [checkboxValue, setCheckboxValue] = useState<any>(undefined);
+    const getCheckboxValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setCheckboxValue(event.target.checked);
+    }
+
     return (
         <main className={style.main}>
             <div className={style.div_color}></div>
@@ -13,7 +19,11 @@ export function Task() {
                     </span>
                 </div>
                 <div className={style.div_checkbox}>
-                    <input className={style.checkbox} type='checkbox'></input>
+                    <input
+                        className={style.checkbox}
+                        type='checkbox'
+                        onChange={getCheckboxValue}
+                    />
                 </div>
             </div>
             <div className={style.div_date}>
