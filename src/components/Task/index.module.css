@@ -17,13 +17,14 @@
 
 .div_task {
     width: 100%;
-    min-height: 50px;
+    min-height: 35px;
     display: flex;
 }
 
 .task {
-   flex-grow: 1;
+    flex-grow: 1;
     color: white;
+    overflow-wrap: break-word;
 }
 
 .div_checkbox {
@@ -42,9 +43,18 @@
     color: white;
 }
 
-.container_date{
+.container_date {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 0.85rem;
+}
+
+.trash_icon{
+    color: white;
+    transition: 200ms;
+}
+
+.trash_icon:hover{
+    color: red;
 }
