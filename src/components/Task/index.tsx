@@ -52,7 +52,7 @@ export function Task({ task }: props) {
         <main className={style.main}>
             <div className={style.div_color} style={{ backgroundColor: `${task.color}` }}></div>
             <div className={style.div_task}>
-                <div className={style.task}>
+                <div className={style.task} style={{ textDecoration: checkboxValue ? "line-through" : "none", color: checkboxValue ? "#888888" : "white" }}>
                     {task.task}
                 </div>
                 <div className={style.div_checkbox}>
@@ -70,6 +70,6 @@ export function Task({ task }: props) {
                 </div>
                 <Button action={deleteTask} icon={<Trash className={style.trash_icon} />} />
             </div>
-        </main>
+        </main >
     )
 }
