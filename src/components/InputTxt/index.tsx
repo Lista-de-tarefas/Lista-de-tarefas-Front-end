@@ -107,7 +107,7 @@ export function InputTxt() {
                     value={inputValue}
                     onChange={getInputValue}
                     type="text"
-                    placeholder='Adicione uma novas tarefas...'
+                    placeholder='Adicione uma nova tarefas...'
                 />
                 <button className={style.btn_add} onClick={newTask}>Adicionar</button>
             </div>

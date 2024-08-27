@@ -1,6 +1,7 @@
 import style from './index.module.css';
 import { useState } from 'react';
 import { getDate } from '../../utils/getDate';
+import profileImg from '../../assets/img/profile.jpg';
 
 export function Header() {
     const [date, setDate] = useState<{ year: string, hour: string }>(getDate());
@@ -17,7 +18,7 @@ export function Header() {
                 <span className={style.date}>{date?.year}  <span>{date?.hour} <span>{pmAm > 11 ? " " + "pm" : " " + "am"}</span></span></span>
             </div>
             <div className={style.div_profile}>
-                <div className={style.profile}></div>
+                <img className={style.profile} src={profileImg} alt="" />
             </div>
         </main>
     )
