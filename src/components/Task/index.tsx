@@ -41,7 +41,8 @@ export function Task({ task }: props) {
             setDeleteTaskValidation(true);
             setTimeout(() => {
                 setDeleteTaskValidation(false);
-            }, 3000)
+            }, 3000);
+            console.log(response);
         } catch (error) {
             console.log("Erro ao apagar a tarefa!" + error)
         }
@@ -53,6 +54,7 @@ export function Task({ task }: props) {
                 method: 'PATCH'
             });
             setCount(count + 1);
+            console.log(response);
         } catch (error) {
             console.log("Erro ao marcar a tarefa!" + error);
         }

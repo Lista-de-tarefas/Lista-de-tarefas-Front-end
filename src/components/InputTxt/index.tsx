@@ -93,6 +93,7 @@ export function InputTxt() {
                 setTimeout(() => {
                     setValidation(false);
                 }, 3000);
+                console.log(response);
             } catch (error) {
                 console.log(`Erro na requisição: ${error}`)
             }
