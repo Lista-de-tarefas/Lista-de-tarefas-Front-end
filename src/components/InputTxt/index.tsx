@@ -67,7 +67,7 @@ export function InputTxt() {
                     "#E9967A", // Salmão Escuro
                     "#8B4513"  // Marrom Saddle
                 ];
-                
+
                 const randomColor = (options: string[]) => {
                     const randomIndex = Math.floor(Math.random() * options.length);
                     return options[randomIndex];
@@ -99,6 +99,12 @@ export function InputTxt() {
         }
     }
 
+    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter") {
+            newTask();
+        }
+    };
+
     return (
         <main className={style.main}>
             <div className={style.div_input_text}>
@@ -106,6 +112,7 @@ export function InputTxt() {
                     className={style.input_text}
                     value={inputValue}
                     onChange={getInputValue}
+                    onKeyPress={handleKeyPress}
                     type="text"
                     placeholder='Adicione uma nova tarefas...'
                 />

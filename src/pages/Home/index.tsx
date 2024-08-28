@@ -3,6 +3,7 @@ import style from './index.module.css';
 
 //Icons
 import { BadgeCheck } from 'lucide-react';
+import empty from '../../assets/img/Empty.png';
 
 //Context
 import { useContext, useEffect, useState } from 'react';
@@ -37,7 +38,11 @@ export function Home() {
                     }
                 });
                 const data = await response.json();
-                setTasks(data);
+                if (data.length > 0) {
+                    setTasks(data);
+                } else {
+                    setTasks(undefined);
+                }
             } catch (error) {
                 console.log("Erro ao buscar tarefas: " + error);
             }
@@ -59,7 +64,10 @@ export function Home() {
                 )}
                 <Header />
                 <InputTxt />
-                <div className={style.container_task}>
+                <div className={tasks ? style.container_task : style.container_task_1}>
+                    {!tasks && (
+                        <img className={style.iconEmpty} src={empty} alt="" />
+                    )}
                     {tasks?.map((task, index) => (
                         <Task key={index} task={task} />
                     ))}

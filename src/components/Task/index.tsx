@@ -8,6 +8,8 @@ import { Context } from '../../context/context';
 
 //Icons
 import { AlignLeft, Trash } from 'lucide-react';
+import { Square } from 'lucide-react';
+import { SquareCheckBig } from 'lucide-react';
 
 //Components
 import { Button } from './_components/Button';
@@ -25,11 +27,8 @@ export function Task({ task }: props) {
         return "Erro no context src/components/Task linha 25."
     }
     const { count, setCount, setDeleteTaskValidation } = context;
-
-    const [checkboxValue, setCheckboxValue] = useState<any>(undefined);
-    const getCheckboxValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCheckboxValue(event.target.checked);
-    }
+    const [checkboxValue, setCheckboxValue] = useState<boolean>(task.isCompleted);
+    
     const pmAm = task.hour.slice(0, 2) as unknown as number;
     const hour = task.hour.slice(0, 5) as unknown as number;
 
@@ -48,6 +47,17 @@ export function Task({ task }: props) {
         }
     }
 
+    async function markTask() {
+        try {
+            const response = await fetch(`http://localhost:8080/mark-task/${task.id}`, {
+                method: 'PATCH'
+            });
+            setCount(count + 1);
+        } catch (error) {
+            console.log("Erro ao marcar a tarefa!" + error);
+        }
+    }
+
     return (
         <main className={style.main}>
             <div className={style.div_color} style={{ backgroundColor: `${task.color}` }}></div>
@@ -55,12 +65,8 @@ export function Task({ task }: props) {
                 <div className={style.task} style={{ textDecoration: checkboxValue ? "line-through" : "none", color: checkboxValue ? "#888888" : "white" }}>
                     {task.task}
                 </div>
-                <div className={style.div_checkbox}>
-                    <input
-                        className={style.checkbox}
-                        type='checkbox'
-                        onChange={getCheckboxValue}
-                    />
+                <div className={style.div_checkbox} onClick={() => setCheckboxValue(!checkboxValue)}>
+                    <Button action={markTask} icon={checkboxValue ? <SquareCheckBig color='white'/> : <Square color='white' />} />
                 </div>
             </div>
             <div className={style.div_date}>

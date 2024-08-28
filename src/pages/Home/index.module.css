@@ -19,11 +19,27 @@
 
 .container_task {
     width: 100%;
+    min-height: 60%;
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 15px;
     margin-top: 30px;
+}
 
+.container_task_1{
+    width: 100%;
+    min-height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.iconEmpty{
+    width: 300px;
 }
 
 ::-webkit-scrollbar {
@@ -48,6 +64,10 @@
         padding: 20px 10px;
         overflow: auto;
     }
+
+    .iconEmpty{
+        width: 300px;
+    }
 }
 
 @media screen and (min-width: 425px) and (max-width: 768px) {
@@ -61,6 +81,10 @@
         box-shadow: 0px 0px 10px #1f171f;
         padding: 20px 10px;
         overflow: auto;
+    }
+
+    .iconEmpty{
+        width: 280px;
     }
 }
 
@@ -76,5 +100,9 @@
         box-shadow: 0px 0px 10px #1f171f;
         padding: 20px 10px;
         overflow: auto;
+    }
+
+    .iconEmpty{
+        width: 250px;
     }
 }
