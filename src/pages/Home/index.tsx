@@ -31,7 +31,7 @@ export function Home() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch('http://localhost:8080/gettask', {
+                const response = await fetch('https://lista-de-tarefas-back-end-production.up.railway.app/gettask', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'

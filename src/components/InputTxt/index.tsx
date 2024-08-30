@@ -72,7 +72,7 @@ export function InputTxt() {
                     const randomIndex = Math.floor(Math.random() * options.length);
                     return options[randomIndex];
                 }
-                const response = await fetch('http://localhost:8080/newtask', {
+                const response = await fetch('https://lista-de-tarefas-back-end-production.up.railway.app/newtask', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

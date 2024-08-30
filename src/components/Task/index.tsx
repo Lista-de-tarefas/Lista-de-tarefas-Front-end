@@ -34,7 +34,7 @@ export function Task({ task }: props) {
 
     async function deleteTask() {
         try {
-            const response = await fetch(`http://localhost:8080/delete/${task.id}`, {
+            const response = await fetch(`https://lista-de-tarefas-back-end-production.up.railway.app/delete/${task.id}`, {
                 method: 'DELETE'
             });
             setCount(count + 1);
@@ -50,7 +50,7 @@ export function Task({ task }: props) {
 
     async function markTask() {
         try {
-            const response = await fetch(`http://localhost:8080/mark-task/${task.id}`, {
+            const response = await fetch(`https://lista-de-tarefas-back-end-production.up.railway.app/mark-task/${task.id}`, {
                 method: 'PATCH'
             });
             setCount(count + 1);
